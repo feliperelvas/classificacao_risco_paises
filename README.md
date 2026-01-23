@@ -37,6 +37,34 @@ atributos.xlsx
 
 ---
 
+## 📂 Sobre os Dados
+
+O dataset original utilizado neste projeto foi obtido a partir do **World Development Indicators (World Bank)**, como mencionado anteriormente, e possui aproximadamente **186 MB**.
+
+Devido ao limite de tamanho de arquivos do GitHub e para facilitar a execução do projeto, o arquivo bruto **não foi versionado** neste repositório.
+
+### 🔹 Dataset Processado
+
+Para garantir reprodutibilidade e facilidade de uso, o repositório contém uma versão **já tratada e processada** dos dados, resultante de todas as etapas de limpeza, seleção de atributos e dos anos analisados.
+
+Esse arquivo permite que o notebook seja executado diretamente, sem a necessidade de baixar os dados originais.
+
+Arquivo:
+
+```
+dataset_processado.csv
+```
+
+### 🔹 Reconstrução a partir dos dados brutos (opcional)
+
+Caso o usuário deseje reproduzir todo o pipeline de construção dos dados, é possível baixar o dataset original diretamente do World Bank:
+
+- Fonte: https://data.worldbank.org/
+
+Após o download, o arquivo (WDICSV.csv) deve ser salvo no diretório apropriado e o notebook executará automaticamente as etapas de pré-processamento.
+
+---
+
 ### 🏦 Classificações de Risco (Variável Alvo)
 
 As classificações de risco soberano foram extraídas da **Standard & Poor’s (S&P)** para dois anos:
@@ -134,13 +162,13 @@ Os resultados indicaram que o modelo com melhor desempenho médio foi o:
 
 - **Acurácia média (5-Fold CV):** **≈ 75,4%**
 
-Esse resultado sugere que modelos de *ensemble boosting* são particularmente adequados para capturar relações complexas entre indicadores macroeconômicos e classificações de risco soberano.
+Esse resultado sugere que modelos de *ensemble boosting* são particularmente adequados para capturar relações complexas entre indicadores macroeconômicos e classificações de risco.
 
 ---
 
 ## 📌 Conclusões
 
-- É possível obter **resultados consistentes** na classificação de risco soberano utilizando técnicas de *Machine Learning* e dados públicos.
+- É possível obter **resultados consistentes** na classificação de risco utilizando técnicas de *Machine Learning* e dados públicos.
 - O desempenho do XGBoost indica que relações **não lineares e interações entre variáveis** são relevantes nesse tipo de problema.
 - Apesar da boa acurácia, o estudo possui limitações, principalmente relacionadas ao tamanho da amostra.
 
@@ -158,8 +186,10 @@ Algumas extensões naturais deste projeto incluem:
 ## 📁 Estrutura do Repositório
 
 ```
-├── main.ipynb                # Notebook principal com toda a análise
+├── main.ipynb                    # Notebook principal com toda a análise
 ├── atributos.xlsx                # Lista de indicadores selecionados
+├── classes.png                   # Foto mostrando o agrupamento de classes
+├── dataset_processado.csv        # Dataset com os dados já processados
 ├── paises_2019_rating.xlsx       # Classificações S&P – 2019
 ├── paises_2021_rating.xlsx       # Classificações S&P – 2021
 ├── README.md                     # Este arquivo
@@ -170,4 +200,3 @@ Algumas extensões naturais deste projeto incluem:
 ## 📄 Observações Finais
 
 - Este projeto possui **caráter acadêmico e exploratório**. As análises e resultados não devem ser interpretados como recomendações de investimento ou avaliações oficiais de risco.
-- O arquivo da base de dados (WDICSV.csv) não está no repositório visto que o arquivo é muito pesado para o github.
